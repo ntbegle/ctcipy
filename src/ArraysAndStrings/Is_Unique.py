@@ -20,18 +20,6 @@ def is_unique_no_ds(str):
 
     return True
 
-testStrs = ['abcde', 'hello world', 'aabcd', 'abcdd']
 
-for str in testStrs:
-    if is_unique(str):
-        print('Test str \''+ str + '\' is unique')
-    else:
-        print('Test str \'' + str + '\' is not unique')
-
-for str in testStrs:
-    if is_unique_no_ds(str):
-        print('Test with no data structs str \''+ str + '\' is unique')
-    else:
-        print('Test with no data structs str \'' + str + '\' is not unique')
 
 

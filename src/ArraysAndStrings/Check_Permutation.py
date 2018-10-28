@@ -35,3 +35,41 @@ def isPermutation(str1, str2):
             return False
 
     return True
+
+
+# def isPalindrome(inputStr):
+#     startIdx = 0
+#     endIdx = len(inputStr) - 1
+#
+#     while startIdx < endIdx:
+#         if inputStr[startIdx] != inputStr[endIdx]:
+#             return False
+#     return True
+
+# check input string if a permutation exists that is a palindrome
+# example in book ignores spaces so i guess i will too
+#   if it's a palindrome then the count of individual chars should be even unless it has an odd amount of chars
+#       which means only 1 char can have on odd count
+def isPalindromePermutation(inputStr):
+    charDict = dict()
+    strLen = len(inputStr)
+    # fill charDict with char counts for each char
+    for c in inputStr:
+        if c != ' ':
+            if c in charDict:
+                charDict[c] += 1
+            else:
+                charDict[c] = 1
+        else:
+            strLen -= 1
+
+    numOdd = 0
+    for v in charDict.values():
+        if (v % 2) == 1:
+            numOdd += 1
+
+    if (strLen % 2) == 0 and numOdd > 0:
+        return False
+    elif (strLen % 2) == 1 and numOdd > 1:
+        return False
+    return True

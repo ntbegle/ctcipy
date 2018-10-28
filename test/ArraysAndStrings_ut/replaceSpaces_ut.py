@@ -1,5 +1,4 @@
 import unittest
-import array
 
 import ArraysAndStrings.To_URL
 

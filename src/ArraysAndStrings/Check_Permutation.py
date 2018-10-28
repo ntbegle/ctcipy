@@ -12,30 +12,26 @@
 #   4. another way I read about online is to only use one dict.  Increment value by 1 if it exists in str1
 #       decrement if it exists in str2.  final values in dict should all be 0
 
-# use dictionaries to count the letters in each string
+# use option 4
 def isPermutation(str1, str2):
     if len(str1) != len(str2):
         return False
 
-    dict1 = dict()
-    dict2 = dict()
+    charDict = dict()
 
     for i in range(0,len(str1)):
-        if str1[i] in dict1:
-            dict1[str1[i]] += 1
+        if str1[i] in charDict:
+            charDict[str1[i]] += 1
         else:
-            dict1[str1[i]] = 1
+            charDict[str1[i]] = 1
 
-        if str2[i] in dict2:
-            dict2[str2[i]] += 1
+        if str2[i] in charDict:
+            charDict[str2[i]] -= 1
         else:
-            dict2[str2[i]] = 1
+            charDict[str2[i]] = -1
 
-    for i in range(0, len(str1)):
-        if str1[i] in dict2:
-            if dict1[str1[i]] != dict2[str1[i]]:
-                return False
-        else:
+    for v in charDict.values():
+        if v != 0:
             return False
 
     return True
